@@ -1,6 +1,7 @@
 package main
 
 import (
+	"gin_api/user"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -12,6 +13,7 @@ func main() {
 
 	r.GET("/", Index)
 	r.GET("/hello", Hello)
+	r.POST("/user/create", user.UserCreate)
 
 	r.Run()
 }
