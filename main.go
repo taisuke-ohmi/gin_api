@@ -11,10 +11,14 @@ func main() {
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/*")
 
-	r.Static("/assets", "./assets")
+	authorized := r.Group("/admin", gin.BasicAuth(gin.Accounts{
+		"foo": "bar",
+	}))
+
 	r.GET("/", Index)
-	r.GET("/hello", Hello)
+	authorized.GET("/hello", Hello)
 	r.POST("/user/create", user.UserCreate)
+	r.Static("/assets", "./assets")
 
 	r.Run()
 }
