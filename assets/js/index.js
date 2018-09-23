@@ -15,7 +15,6 @@ window.onload = function() {
         var newEl = document.createElement('li');
         newEl.innerHTML = name;
         result.appendChild(newEl);
-        loading.innerHTML = "";
       }
     };
 
