@@ -2,12 +2,17 @@ package main
 
 import (
 	"gin_api/user"
+	"io"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	f, _ := os.Create("gin.log")
+	gin.DefaultWriter = io.MultiWriter(f)
+
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/*")
 
