@@ -1,0 +1,2 @@
+# gin_api
+ginでgo apiサーバーを作り、フロントからのPOSTリクエストをJSONで返すだけのサンプル
